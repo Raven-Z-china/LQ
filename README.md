@@ -8,17 +8,17 @@
 
 检测出椅子，并对椅子的检测窗口进行分割
 
-![intro](1280X1280.JPEG)
+![intro](fids/1280X1280.JPEG)
 
 训练结果：
 
 检测：
 
-![intro](det.PNG)
+![intro](figs/det.PNG)
 
 分割：
 
-![intro](seg.png)
+![intro](figs/seg.png)
 
 代码：yolov5
 
