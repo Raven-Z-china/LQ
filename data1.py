@@ -33,4 +33,5 @@ if __name__ == "__main__":
     dir_b = "C:\\Users\\34765\\Desktop\\zouruiwen\\label"  # 替换为实际路径
 
 
+
     sync_blank_files(dir_a, dir_b)
