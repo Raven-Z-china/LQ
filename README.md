@@ -36,7 +36,9 @@
 
 代码：masking_win.py
 
+![intro](figs/w1.png)
 
+![intro](figs/w2.png)
 
 3、空白标签创建算法
 
