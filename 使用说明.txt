@@ -1,0 +1,80 @@
+首次打开运行
+pip install -r yolov5/requirements.txt
+
+
+在当前目录运行
+from yolov5.launch import launch
+launch(source=path_to_image)
+#i.e., launch(source=0,view_img=True)表示对摄像头输入流进行检测,并显示检测窗口
+当前目录即可生成result文件夹
+
+launch参数列表
+def launch(
+    weights=ROOT / "yolov5s.pt",  # model path or triton URL
+    source=0,  # file/dir/URL/glob/screen/0(webcam)
+    data=ROOT / "data/coco128.yaml",  # dataset.yaml path
+    imgsz=(640, 640),  # inference size (height, width)
+    conf_thres=0.25,  # confidence threshold
+    iou_thres=0.45,  # NMS IOU threshold
+    max_det=1000,  # maximum detections per image
+    device="",  # cuda device, i.e. 0 or 0,1,2,3 or cpu
+    view_img=False,  # show results
+    save_txt=False,  # save results to *.txt
+    save_format=0,  # save boxes coordinates in YOLO format or Pascal-VOC format (0 for YOLO and 1 for Pascal-VOC)
+    save_csv=False,  # save results in CSV format
+    save_conf=False,  # save confidences in --save-txt labels
+    save_crop=False,  # save cropped prediction boxes
+    nosave=False,  # do not save images/videos
+    classes=None,  # filter by class: --class 0, or --class 0 2 3
+    agnostic_nms=False,  # class-agnostic NMS
+    augment=False,  # augmented inference
+    visualize=False,  # visualize features
+    update=False,  # update all models
+    project=ROOT / "../result/detect",  # save results to project/name
+    name="exp",  # save results to project/name
+    exist_ok=False,  # existing project/name ok, do not increment
+    line_thickness=3,  # bounding box thickness (pixels)
+    hide_labels=False,  # hide labels
+    hide_conf=True,  # hide confidences
+    half=False,  # use FP16 half-precision inference
+    dnn=False,  # use OpenCV DNN for ONNX inference
+    vid_stride=1,  # video frame-rate stride
+    det_interval=det_interval, #time interval of segmentation
+):
+
+
+Runs YOLOv5 detection inference on various sources like images, videos, directories, streams, etc.
+
+Args:
+weights (str | Path): Path to the model weights file or a Triton URL. Default is 'yolov5s.pt'.
+source (str | Path): Input source, which can be a file, directory, URL, glob pattern, screen capture, or webcam
+    index. Default is 'data/images'.
+data (str | Path): Path to the dataset YAML file. Default is 'data/coco128.yaml'.
+imgsz (tuple[int, int]): Inference image size as a tuple (height, width). Default is (640, 640).
+conf_thres (float): Confidence threshold for detections. Default is 0.25.
+iou_thres (float): Intersection Over Union (IOU) threshold for non-max suppression. Default is 0.45.
+max_det (int): Maximum number of detections per image. Default is 1000.
+device (str): CUDA device identifier (e.g., '0' or '0,1,2,3') or 'cpu'. Default is an empty string, which uses the
+    best available device.
+view_img (bool): If True, display inference results using OpenCV. Default is False.
+save_txt (bool): If True, save results in a text file. Default is False.
+save_csv (bool): If True, save results in a CSV file. Default is False.
+save_conf (bool): If True, include confidence scores in the saved results. Default is False.
+save_crop (bool): If True, save cropped prediction boxes. Default is False.
+nosave (bool): If True, do not save inference images or videos. Default is False.
+classes (list[int]): List of class indices to filter detections by. Default is None.
+agnostic_nms (bool): If True, perform class-agnostic non-max suppression. Default is False.
+augment (bool): If True, use augmented inference. Default is False.
+visualize (bool): If True, visualize feature maps. Default is False.
+update (bool): If True, update all models' weights. Default is False.
+project (str | Path): Directory to save results. Default is 'runs/detect'.
+name (str): Name of the current experiment; used to create a subdirectory within 'project'. Default is 'exp'.
+exist_ok (bool): If True, existing directories with the same name are reused instead of being incremented. Default is
+    False.
+line_thickness (int): Thickness of bounding box lines in pixels. Default is 3.
+hide_labels (bool): If True, do not display labels on bounding boxes. Default is False.
+hide_conf (bool): If True, do not display confidence scores on bounding boxes. Default is False.
+half (bool): If True, use FP16 half-precision inference. Default is False.
+dnn (bool): If True, use OpenCV DNN backend for ONNX inference. Default is False.
+vid_stride (int): Stride for processing video frames, to skip frames between processing. Default is 1.
+det_interval(int):Time interval for detection. Default is 3.
